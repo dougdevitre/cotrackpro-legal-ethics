@@ -32,6 +32,7 @@ import { WitnessManager } from './components/WitnessManager';
 import { CriticalIssues } from './components/CriticalIssues';
 import { CATEGORIES } from './constants';
 import { AppView, AssessmentState, AssessmentEntry, Witness } from './types';
+import { RequireTier } from './auth';
 
 const App: React.FC = () => {
   const [view, setView] = useState<AppView>(AppView.DASHBOARD);
@@ -266,6 +267,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans relative">
+      <RequireTier tier="professional" access="legal">
       {/* Privacy Overlay */}
       {privacyMode && (
           <div 
@@ -588,6 +590,7 @@ const App: React.FC = () => {
           </div>
         </main>
       </div>
+          </RequireTier>
     </div>
   );
 };
