@@ -142,10 +142,17 @@ export const generateEthicsReport = async (state: AssessmentState, witnesses: Wi
   
   promptData += `TONE: Analytical, strategic, objective. Focus on *evidence* quality.`;
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  let _ai: GoogleGenAI | null = null;
+function getAI(): GoogleGenAI {
+  if (!_ai) {
+    const key = process.env.API_KEY || process.env.GEMINI_API_KEY || "";
+    _ai = new GoogleGenAI({ apiKey: key });
+  }
+  return _ai;
+}
   
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAI().models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: promptData,
       config: {
@@ -187,7 +194,7 @@ export const generateCategoryAnalysis = async (category: Category, state: Assess
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAI().models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: promptData,
       config: {
@@ -220,7 +227,7 @@ export const generateCriticalActionPlan = async (items: {text: string, missingEv
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAI().models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: promptData,
       config: {
