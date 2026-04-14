@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { CoTrackProAuth } from './auth';
 import { CoTrackProLayout } from './layout';
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -15,6 +16,7 @@ root.render(
     <CoTrackProAuth>
         <CoTrackProLayout>
           <App />
+        <SpeedInsights />
         </CoTrackProLayout>
       </CoTrackProAuth>
   </React.StrictMode>
