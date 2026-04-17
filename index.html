@@ -3,31 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legal Ethics Tracker</title>
+    <title>CoTrackPro | Cotrackpro Legal Ethics</title>
+    <meta name="description" content="Legal ethics education and compliance tools — professional responsibility guides, disciplinary processes, and ethics complaint resources." />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CoTrackPro | Cotrackpro Legal Ethics" />
+    <meta property="og:description" content="Legal ethics education and compliance tools — professional responsibility guides, disciplinary processes, and ethics complaint resources." />
+    <meta property="og:url" content="https://cotrackpro-legal-ethics.vercel.app" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Brand CSS -->
+    <link rel="stylesheet" href="/brand.css" />
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-      body {
-        font-family: 'Inter', sans-serif;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50:  '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+              },
+              navy: {
+                800: '#1e293b',
+                850: '#151f2e',
+                900: '#0f172a',
+                950: '#0a0f1e',
+              },
+              gold: {
+                300: '#fde68a',
+                400: '#fbbf24',
+                500: '#f59e0b',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
       }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      .animate-fadeIn {
-        animation: fadeIn 0.3s ease-in-out;
-      }
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-slideDown {
-        animation: slideDown 0.2s ease-out;
-      }
-    </style>
+    </script>
   </head>
-  <body style="margin:0;background-color:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif">
+  <body>
     <div id="root"></div>
-      <script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
